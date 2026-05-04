@@ -13,18 +13,18 @@ async function startServer() {
     const { name } = req.params;
     res.json({
       name,
-      coreIdentity: `# Profile: ${name}\n\nPrimary Node: .252\nStatus: ACTIVE\n\nExpertise in analytical systems and content orchestration. Dedicated to precision and systemic efficiency.`,
-      toneOfVoice: `## Tone Guidelines\n\n- Professional\n- Direct\n- Data-driven\n- Minimalist\n- Authoritative yet accessible`,
-      knowledgeBase: `### Active Modules\n\n1. Cybersecurity Trends\n2. Real-time Analytics\n3. Financial Markets\n4. AI Content Strategy`
+      coreIdentity: `# Профиль: ${name}\n\nОсновной узел: .252\nСтатус: АКТИВЕН\n\nЭксперт в аналитических системах и оркестрации контента. Нацелен на точность и системную эффективность.`,
+      toneOfVoice: `## Рекомендации по тону\n\n- Профессиональный\n- Прямой\n- Основанный на данных\n- Минималистичный\n- Авторитетный, но доступный`,
+      knowledgeBase: `### Активные модули\n\n1. Тренды кибербезопасности\n2. Аналитика в реальном времени\n3. Финансовые рынки\n4. Контент-стратегии ИИ`
     });
   });
 
   // Mock trends for Radar
   app.get("/api/v1/trends", (req, res) => {
     res.json([
-      { id: 1, title: "Pavlov Reflex in Immunity", score: 92, context: "Emerging studies suggest neuro-immune connections can be conditioned. Vital for bio-tech niche." },
-      { id: 2, title: "Obsidian Aesthetics Growth", score: 78, context: "Shift towards high-contrast, low-eye-strain UI in SaaS. Influencing design systems." },
-      { id: 3, title: "Edge Node Decentralization", score: 85, context: "Moving processing to the edge (.252 protocols) reduces latency in content distribution." }
+      { id: 1, title: "Рефлекс Павлова в иммунитете", score: 92, context: "Новые исследования показывают, что нейро-иммунные связи могут быть обусловлены. Критически важно для ниши био-теха." },
+      { id: 2, title: "Рост эстетики Obsidian", score: 78, context: "Сдвиг в сторону высококонтрастных интерфейсов с низкой нагрузкой на зрение в SaaS." },
+      { id: 3, title: "Децентрализация периферийных узлов", score: 85, context: "Перенос обработки на узлы (протоколы .252) снижает задержку при распределении контента." }
     ]);
   });
 

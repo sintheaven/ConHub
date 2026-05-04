@@ -12,13 +12,15 @@ import {
 import { useDashboard } from '../context/DashboardContext';
 
 export const Sidebar = () => {
+  const { activeView, setActiveView } = useDashboard();
+
   const menuItems = [
-    { icon: LayoutDashboard, label: 'Dashboard', id: 'dashboard' },
+    { icon: LayoutDashboard, label: 'Дашборд', id: 'dashboard' },
     { icon: UserCircle, label: 'Identity Node', id: 'identity' },
     { icon: Radar, label: 'Trend Radar', id: 'trends' },
-    { icon: Factory, label: 'Factory', id: 'factory' },
-    { icon: CalendarDays, label: 'Planner', id: 'planner' },
-    { icon: Settings, label: 'Settings', id: 'settings' },
+    { icon: Factory, label: 'Фабрика', id: 'factory' },
+    { icon: CalendarDays, label: 'Планировщик', id: 'planner' },
+    { icon: Settings, label: 'Настройки', id: 'settings' },
   ];
 
   return (
@@ -31,7 +33,8 @@ export const Sidebar = () => {
         {menuItems.map((item) => (
           <div
             key={item.id}
-            className="group relative cursor-pointer text-muted hover:text-emerald transition-colors"
+            onClick={() => setActiveView(item.id)}
+            className={`group relative cursor-pointer transition-colors ${activeView === item.id ? 'text-emerald' : 'text-muted hover:text-emerald'}`}
           >
             <item.icon size={24} />
             <span className="absolute left-16 top-1/2 -translate-y-1/2 bg-muted text-white text-[10px] uppercase tracking-widest px-2 py-1 rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap z-[100]">
@@ -64,7 +67,7 @@ export const Header = () => {
     <header className="h-14 border-b border-muted bg-obsidian flex items-center justify-between px-6 sticky top-0 z-40 backdrop-blur-sm">
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2 px-3 py-1 bg-surface border border-muted rounded-sm">
-          <span className="text-[10px] text-muted uppercase tracking-tighter">Active Profile</span>
+          <span className="text-[10px] text-muted uppercase tracking-tighter">Активный профиль</span>
           <span className="text-cyber font-mono text-sm font-medium">{currentProfileName}</span>
         </div>
       </div>
@@ -72,11 +75,11 @@ export const Header = () => {
       <div className="flex items-center gap-8">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
-            <span className="text-[10px] text-muted uppercase">Node .252</span>
+            <span className="text-[10px] text-muted uppercase">Узел .252</span>
             <div className={`w-2 h-2 rounded-full ${getStatusColor(statusNode252)} transition-colors duration-500`} />
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-[10px] text-muted uppercase">Node .188</span>
+            <span className="text-[10px] text-muted uppercase">Узел .188</span>
             <div className={`w-2 h-2 rounded-full ${getStatusColor(statusNode188)} transition-colors duration-500`} />
           </div>
         </div>
@@ -84,10 +87,10 @@ export const Header = () => {
         <div className="flex items-center gap-3">
           <div className="text-right">
             <div className="text-[10px] text-muted">04.05.2026</div>
-            <div className="text-[10px] font-mono text-emerald">18:21:30 UTC</div>
+            <div className="text-[10px] font-mono text-emerald">18:21:30 МСК</div>
           </div>
           <div className="w-8 h-8 rounded-full border border-emerald overflow-hidden bg-surface">
-             <img src={`https://api.dicebear.com/7.x/pixel-art/svg?seed=Olga`} alt="User avatar" />
+             <img src={`https://api.dicebear.com/7.x/pixel-art/svg?seed=Olga`} alt="User avatar" referrerPolicy="no-referrer" />
           </div>
         </div>
       </div>

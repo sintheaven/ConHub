@@ -17,6 +17,8 @@ export interface Trend {
 interface DashboardContextType {
   currentProfileName: string;
   setCurrentProfileName: (name: string) => void;
+  activeView: string;
+  setActiveView: (view: string) => void;
   profile: Profile | null;
   trends: Trend[];
   refreshData: () => Promise<void>;
@@ -27,7 +29,8 @@ interface DashboardContextType {
 const DashboardContext = createContext<DashboardContextType | undefined>(undefined);
 
 export const DashboardProvider = ({ children }: { children: ReactNode }) => {
-  const [currentProfileName, setCurrentProfileName] = useState('AllergyNet / Olga');
+  const [currentProfileName, setCurrentProfileName] = useState('AllergyNet / Ольга');
+  const [activeView, setActiveView] = useState('dashboard');
   const [profile, setProfile] = useState<Profile | null>(null);
   const [trends, setTrends] = useState<Trend[]>([]);
   const [statusNode252, setStatusNode252] = useState<'online' | 'offline' | 'connecting'>('connecting');
@@ -70,6 +73,8 @@ export const DashboardProvider = ({ children }: { children: ReactNode }) => {
     <DashboardContext.Provider value={{
       currentProfileName,
       setCurrentProfileName,
+      activeView,
+      setActiveView,
       profile,
       trends,
       refreshData: fetchData,

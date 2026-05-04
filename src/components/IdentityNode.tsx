@@ -48,32 +48,32 @@ export const IdentityNode = () => {
     <section className="p-6 flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-mono flex items-center gap-2">
-          <span className="text-emerald">$</span> IDENTITY_NODE_ORCHESTRATION
+          <span className="text-emerald">$</span> ОРКЕСТРАЦИЯ_IDENTITY_NODE
         </h2>
         <div className="flex items-center gap-4">
-          <span className="text-[10px] text-muted font-mono uppercase">Last Sync: {lastSync}</span>
+          <span className="text-[10px] text-muted font-mono uppercase">Последняя синхр.: {lastSync}</span>
           <button
             onClick={handleSync}
             disabled={isSyncing}
             className={`flex items-center gap-2 px-4 py-1.5 bg-surface border border-emerald/30 text-emerald text-[11px] uppercase tracking-widest hover:bg-emerald hover:text-obsidian transition-all ${isSyncing ? 'opacity-50 cursor-wait' : ''}`}
           >
             <RefreshCw size={12} className={isSyncing ? 'animate-spin' : ''} />
-            {isSyncing ? 'Accessing Node...' : 'Sync Sequence'}
+            {isSyncing ? 'Доступ к узлу...' : 'Запустить синхр.'}
           </button>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <TerminalPanel title="Core Identity" content={profile?.coreIdentity || ''} />
-        <TerminalPanel title="Tone of Voice" content={profile?.toneOfVoice || ''} />
-        <TerminalPanel title="Knowledge Base" content={profile?.knowledgeBase || ''} />
+        <TerminalPanel title="Основная Идентичность" content={profile?.coreIdentity || ''} />
+        <TerminalPanel title="Style Guide (Тон)" content={profile?.toneOfVoice || ''} />
+        <TerminalPanel title="База Знаний" content={profile?.knowledgeBase || ''} />
       </div>
 
       {isSyncing && (
         <div className="bg-surface/50 border border-muted p-2 font-mono text-[10px] text-muted-foreground overflow-hidden">
-           <div className="animate-bounce">{'>>'} [LOG] INITIALIZING SECURE TUNNEL TO .252...</div>
-           <div className="animate-bounce delay-75">{'>>'} [LOG] HANDSHAKE SUCCESSFUL. RETRIEVING PROFILE BLOB...</div>
-           <div className="animate-bounce delay-150">{'>>'} [LOG] DECRYPTING DATA... DONE.</div>
+           <div className="animate-bounce">{'>>'} [LOG] ИНИЦИАЛИЗАЦИЯ ЗАЩИЩЕННОГО ТУННЕЛЯ К .252...</div>
+           <div className="animate-bounce delay-75">{'>>'} [LOG] РУКОПОЖАТИЕ ВЫПОЛНЕНО. ПОЛУЧЕНИЕ ДАННЫХ...</div>
+           <div className="animate-bounce delay-150">{'>>'} [LOG] ДЕШИФРОВКА ДАННЫХ... ГОТОВО.</div>
         </div>
       )}
     </section>

@@ -9,10 +9,10 @@ export const TrendRadar = () => {
     <section className="p-6 flex flex-col gap-4">
       <div className="flex items-center justify-between border-b border-muted pb-4">
         <h2 className="text-sm font-mono flex items-center gap-2">
-          <span className="text-cyber">$</span> TREND_RADAR_SCAN
+          <span className="text-cyber">$</span> СКАНЕР_ТРЕНД_РАДАРА
         </h2>
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-muted uppercase">Scanning Frequency:</span>
+          <span className="text-[10px] text-muted uppercase">Частота сканирования:</span>
           <span className="text-[10px] text-cyber font-mono">1.2THz</span>
         </div>
       </div>
@@ -34,7 +34,7 @@ export const TrendRadar = () => {
             <div className="flex items-center justify-between mb-3">
               <span className="text-xs text-cyber font-mono flex items-center gap-1 uppercase tracking-widest">
                 <Radar size={12} />
-                Niche_{trend.id}
+                Ниша_{trend.id}
               </span>
               <div className="flex items-center gap-2 text-muted">
                  <Share2 size={14} className="hover:text-white cursor-pointer" />
@@ -48,7 +48,7 @@ export const TrendRadar = () => {
 
             <div className="flex items-center justify-between pt-4 border-t border-muted/50">
               <div className="flex flex-col">
-                <span className="text-[10px] text-muted uppercase tracking-tighter">Impact Score</span>
+                <span className="text-[10px] text-muted uppercase tracking-tighter">Индекс влияния</span>
                 <div className="flex items-center gap-2 mt-1">
                   <div className="h-1 w-24 bg-muted rounded-full overflow-hidden">
                     <motion.div
@@ -64,7 +64,7 @@ export const TrendRadar = () => {
 
               <button className="flex items-center gap-2 px-3 py-1.5 bg-cyber/10 border border-cyber/30 text-cyber text-[10px] uppercase tracking-widest hover:bg-cyber hover:text-obsidian transition-all group-hover:scale-105 active:scale-95">
                 <Zap size={10} />
-                Deploy
+                Внедрить
                 <ArrowUpRight size={10} />
               </button>
             </div>

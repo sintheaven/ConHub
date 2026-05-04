@@ -25,7 +25,7 @@ export const ContentFactory = () => {
     setDisplayText('');
 
     // Mock content generation
-    const mockOutput = `# ${topic} Expansion\n\n## Abstract\nThe intersection of modern immunology and neural pathways provides a unique leverage point for content strategy. By understanding the Pavlovian responses in biological systems, we can mirror these in digital distribution.\n\n### Strategic Pillars:\n1. Synchronous Activation of Edge Nodes\n2. Low-Latency Aesthetic (Obsidian Deep)\n3. Reciprocal Contextual Awareness\n\n---\n**Platform Specific Optimization:** ${platforms.join(', ')}\n**Mode:** ${mode}\n\n[END OF TRANSMISSION]`;
+    const mockOutput = `# Расширение темы: ${topic}\n\n## Аннотация\nПересечение современной иммунологии и нейронных путей дает уникальную точку воздействия для контент-стратегии. Понимая павловские реакции в биологических системах, мы можем зеркально отражать их в цифровом распределении.\n\n### Стратегические столпы:\n1. Синхронная активация периферийных узлов\n2. Эстетика с низкой задержкой (Obsidian Deep)\n3. Взаимная контекстная осведомленность\n\n---\n**Оптимизация под платформы:** ${platforms.join(', ')}\n**Режим:** ${mode}\n\n[КОНЕЦ ПЕРЕДАЧИ]`;
 
     setTimeout(() => {
       setGeneratedContent(mockOutput);
@@ -54,7 +54,7 @@ export const ContentFactory = () => {
     <section className="p-6 flex flex-col gap-4">
       <div className="flex items-center gap-2 border-b border-muted pb-4">
         <h2 className="text-sm font-mono flex items-center gap-2">
-          <span className="text-amber">$</span> CONTENT_FACTORY_V5
+          <span className="text-amber">$</span> КОНТЕНТ_ФАБРИКА_V5
         </h2>
       </div>
 
@@ -62,19 +62,19 @@ export const ContentFactory = () => {
         {/* Input Zone */}
         <div className="bg-surface border border-muted p-6 flex flex-col gap-6">
           <div className="flex flex-col gap-2">
-            <label className="text-[10px] text-muted uppercase tracking-widest font-mono">Input Topic / Context</label>
+            <label className="text-[10px] text-muted uppercase tracking-widest font-mono">Тема / Контекст</label>
             <input
               type="text"
               value={topic}
               onChange={(e) => setTopic(e.target.value)}
-              placeholder="Enter main narrative vector..."
+              placeholder="Введите вектор нарратива..."
               className="bg-obsidian border border-muted p-3 text-sm font-mono focus:border-amber transition-colors outline-none text-amber"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-6">
             <div className="flex flex-col gap-3">
-              <label className="text-[10px] text-muted uppercase tracking-widest font-mono font-bold">Target Platforms</label>
+              <label className="text-[10px] text-muted uppercase tracking-widest font-mono font-bold">Целевые платформы</label>
               <div className="flex gap-3">
                 {[
                   { id: 'TG', icon: MessageSquare },
@@ -93,15 +93,15 @@ export const ContentFactory = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] text-muted uppercase tracking-widest font-mono font-bold">Mode Selector</label>
+              <label className="text-[10px] text-muted uppercase tracking-widest font-mono font-bold">Режим генерации</label>
               <select
                 value={mode}
                 onChange={(e) => setMode(e.target.value)}
                 className="bg-obsidian border border-muted p-2 text-xs font-mono text-white outline-none focus:border-amber"
               >
-                <option>Deep Dive Article</option>
-                <option>Carousel Logic</option>
-                <option>Video Script</option>
+                <option>Глубокая статья</option>
+                <option>Логика карусели</option>
+                <option>Сценарий видео</option>
               </select>
             </div>
           </div>
@@ -112,7 +112,7 @@ export const ContentFactory = () => {
             className="mt-4 flex items-center justify-center gap-3 bg-amber/10 border border-amber/40 text-amber py-3 text-sm font-mono uppercase tracking-[0.2em] hover:bg-amber hover:text-obsidian transition-all disabled:opacity-30 disabled:cursor-not-allowed group"
           >
             <Layers size={18} className="group-hover:rotate-180 transition-transform duration-500" />
-            {isGenerating ? 'Synthesizing...' : 'Ignite Engine'}
+            {isGenerating ? 'Синтез данных...' : 'Запустить двигатель'}
           </button>
         </div>
 
@@ -121,10 +121,10 @@ export const ContentFactory = () => {
           <div className="terminal-header justify-between">
             <div className="flex items-center gap-2">
               <Factory size={14} className="text-amber" />
-              <span className="text-[11px] uppercase tracking-widest text-muted">Factory Terminal Output</span>
+              <span className="text-[11px] uppercase tracking-widest text-muted">Вывод терминала фабрики</span>
             </div>
             <div className={`flex items-center gap-1 ${isGenerating ? 'opacity-100' : 'opacity-0'} transition-opacity`}>
-               <span className="text-[9px] text-amber animate-pulse">GENERATING CONTENT...</span>
+               <span className="text-[9px] text-amber animate-pulse">ГЕНЕРАЦИЯ КОНТЕНТА...</span>
             </div>
           </div>
           <div
@@ -138,16 +138,16 @@ export const ContentFactory = () => {
             ) : (
               <div className="text-muted/30 italic flex items-center justify-center h-full flex-col gap-4">
                  <Monitor size={48} className="opacity-10" />
-                 <span className="text-xs uppercase tracking-tighter">Awaiting input signal...</span>
+                 <span className="text-xs uppercase tracking-tighter">Ожидание входного сигнала...</span>
               </div>
             )}
           </div>
           <div className="bg-surface border-x border-b border-muted p-2 flex justify-end gap-3">
              <button className="flex items-center gap-1 text-[10px] text-muted hover:text-amber transition-colors uppercase">
-               <Copy size={12} /> Copy
+               <Copy size={12} /> Копировать
              </button>
              <button className="flex items-center gap-1 text-[10px] text-muted hover:text-amber transition-colors uppercase">
-               <Download size={12} /> Export PDF
+               <Download size={12} /> Экспорт PDF
              </button>
           </div>
         </div>

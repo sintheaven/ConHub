@@ -11,11 +11,11 @@ interface ContentSlot {
 
 export const ContentPlanner = () => {
   const slots: ContentSlot[] = [
-    { id: 1, time: '09:00', type: 'Text', status: 'Published', title: 'The Immunity Reflex' },
-    { id: 2, time: '12:30', type: 'Carousel', status: 'Queued', title: 'Obsidian Design Principles' },
-    { id: 3, time: '15:00', type: 'Video', status: 'Draft', title: 'Edge Node Explained' },
-    { id: 4, time: '18:45', type: 'Text', status: 'Queued', title: 'Bio-tech Intersection' },
-    { id: 5, time: '21:00', type: 'Video', status: 'Draft', title: 'Future of Decentralization' },
+    { id: 1, time: '09:00', type: 'Text', status: 'Published', title: 'Рефлекс Иммунитета' },
+    { id: 2, time: '12:30', type: 'Carousel', status: 'Queued', title: 'Принципы Дизайна Obsidian' },
+    { id: 3, time: '15:00', type: 'Video', status: 'Draft', title: 'Разбор Периферийных Узлов' },
+    { id: 4, time: '18:45', type: 'Text', status: 'Queued', title: 'Биотех-Пересечения' },
+    { id: 5, time: '21:00', type: 'Video', status: 'Draft', title: 'Будущее Децентрализации' },
   ];
 
   const getStatusStyle = (status: string) => {
@@ -27,11 +27,20 @@ export const ContentPlanner = () => {
     }
   };
 
+  const getStatusLabel = (status: string) => {
+    switch (status) {
+      case 'Published': return 'Опубликовано';
+      case 'Queued': return 'В очереди';
+      case 'Draft': return 'Черновик';
+      default: return status;
+    }
+  };
+
   const getTypeIcon = (type: string) => {
     switch (type) {
-      case 'Text': return '[T]';
-      case 'Carousel': return '[C]';
-      case 'Video': return '[V]';
+      case 'Text': return '[T] Текст';
+      case 'Carousel': return '[C] Карусель';
+      case 'Video': return '[V] Видео';
       default: return '[?]';
     }
   };
@@ -40,11 +49,11 @@ export const ContentPlanner = () => {
     <section className="p-6 flex flex-col gap-4">
       <div className="flex items-center justify-between border-b border-muted pb-4">
         <h2 className="text-sm font-mono flex items-center gap-2">
-          <span className="text-muted">$</span> CONTENT_SCHEDULER_RIBBON
+          <span className="text-muted">$</span> ПЛАНИРОВЩИК_КОНТЕНТ_ЛЕНТЫ
         </h2>
         <div className="flex items-center gap-4">
           <button className="text-muted hover:text-white"><ChevronLeft size={18} /></button>
-          <span className="text-xs font-mono uppercase text-cyber">Monday, May 4</span>
+          <span className="text-xs font-mono uppercase text-cyber">Понедельник, 4 Мая</span>
           <button className="text-muted hover:text-white"><ChevronRight size={18} /></button>
         </div>
       </div>
@@ -71,7 +80,7 @@ export const ContentPlanner = () => {
 
               <div className="flex items-center justify-between mt-4">
                  <span className={`text-[9px] uppercase tracking-widest px-2 py-0.5 rounded-sm border ${getStatusStyle(slot.status)}`}>
-                   {slot.status}
+                   {getStatusLabel(slot.status)}
                  </span>
                  <div className="h-1 flex-1 mx-2 bg-muted/20 rounded-full overflow-hidden">
                     {slot.status === 'Published' && <div className="h-full w-full bg-emerald" />}
@@ -85,7 +94,7 @@ export const ContentPlanner = () => {
           <div className="w-64 border border-dashed border-muted p-4 flex items-center justify-center text-muted hover:text-white hover:border-white transition-all cursor-pointer">
              <div className="flex flex-col items-center gap-2">
                <Calendar size={24} className="opacity-20" />
-               <span className="text-[10px] uppercase tracking-[0.2em]">New Slot +</span>
+               <span className="text-[10px] uppercase tracking-[0.2em]">Новый Слот +</span>
              </div>
           </div>
         </div>
